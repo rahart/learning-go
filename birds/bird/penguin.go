@@ -1,7 +1,7 @@
 package bird
 
 type Penguin struct  {
-	Name string
+	name string
 }
 
 func (b Penguin) Flys() bool {
@@ -13,5 +13,5 @@ func (b Penguin) Swims() bool {
 }
 
 func (b Penguin) GetName() string {
- 	return b.Name
+ 	return b.name
 }

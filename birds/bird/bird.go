@@ -4,7 +4,12 @@ import "fmt"
 
 type Bird interface {
 	Flys() bool
-	GetName() string
+	Name() string
+	/*
+		There's nothing wrong with providing getters and setters yourself, and it's often appropriate to do so, but it's
+		neither idiomatic nor necessary to put Get into the getter's name. If you have a field called owner (lower case,
+		unexported), the getter method should be called Owner (upper case, exported), not GetOwner.
+	*/
 	Swims() bool
 }
 
@@ -13,9 +18,9 @@ func Info(b ...Bird){
 		var swims string
 		var flies string
 		if bird.Flys() {
-			flies = fmt.Sprintf("%v flys,", bird.GetName())
+			flies = fmt.Sprintf("%v flys,", bird.Name())
 		} else {
-			flies = fmt.Sprintf("%v does not fly,", bird.GetName())
+			flies = fmt.Sprintf("%v does not fly,", bird.Name())
 		}
 
 		if bird.Swims() {
